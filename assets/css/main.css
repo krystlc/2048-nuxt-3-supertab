@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap");
+
+html {
+  @apply h-screen bg-gradient-to-b bg-black from-black from-70% to-amber-900/25 to-90% content-center text-amber-200;
+}
+
+.board {
+  width: 440px;
+  height: 440px;
+  @apply relative order-1 outline-none scale-90 sm:scale-100;
+}
+
+.board .cell,
+.tile {
+  user-select: none;
+  cursor: default;
+}
+
+.cell {
+  @apply rounded border border-amber-600/30 shadow shadow-lime-400/30;
+}
+
+.cell,
+.tile {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  line-height: 90px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tile {
+  @apply absolute border m-0;
+  @apply rounded text-6xl leading-normal bg-white/5 backdrop-blur-sm shadow-sm shadow-lime-400;
+}
+
+.tile0,
+.tile2,
+.tile4,
+.tile8 {
+  @apply border-amber-900 text-amber-600;
+}
+.tile16,
+.tile32,
+.tile64 {
+  @apply border-amber-600 text-amber-400;
+}
+
+.tile128,
+.tile256,
+.tile512 {
+  @apply border-lime-400 text-5xl text-lime-400 leading-loose;
+}
+
+.tile1024,
+.tile2048 {
+  @apply border-white text-4xl leading-loose;
+}
+
+.tile.merged {
+  display: none;
+  @apply invisible;
+}
+
+.tile.merged.isMoving {
+  display: inline;
+}
+
+.tile.new,
+.overlay {
+  animation-duration: 0.2s;
+  animation-name: newTile;
+  animation-fill-mode: forwards;
+  animation-delay: 0.15s;
+  transform: scale(0);
+}
+
+@keyframes newTile {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.overlay {
+  @apply rounded bg-black/50 backdrop-blur-sm absolute -inset-8 flex items-center gap-8 justify-center flex-col;
+}
+
+.tryAgain {
+  @apply bg-white text-orange-600 h-12 w-48 cursor-pointer rounded text-2xl;
+}
+
+.overlay .message {
+  @apply text-6xl text-orange-400;
+}
