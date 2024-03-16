@@ -1,5 +1,5 @@
 <template>
-  <main class="h-screen w-screen overflow-scroll">
+  <main>
     <div class="prose pb-12 px-4 mx-auto prose-invert">
       <div class="mx-auto w-80 text-center py-12">
         <a href="/"><AppBI /></a>

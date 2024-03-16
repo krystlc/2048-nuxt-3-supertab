@@ -1,13 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap");
 
-html {
-  @apply h-screen bg-gradient-to-b bg-black from-black from-70% to-amber-900/25 to-90% content-center text-amber-200;
+body {
+  @apply text-amber-200;
+}
+
+body::after {
+  content: "";
+  @apply -z-10 fixed inset-0 bg-gradient-to-b bg-black from-black from-70% to-amber-900/25 to-90%;
 }
 
 .board {
   width: 440px;
   height: 440px;
-  @apply relative order-1 outline-none scale-90 sm:scale-100;
+  @apply relative order-1 outline-none scale-75 origin-left sm:scale-100 sm:origin-center touch-none;
 }
 
 .board .cell,
@@ -17,7 +22,7 @@ html {
 }
 
 .cell {
-  @apply rounded border border-amber-600/30 shadow shadow-lime-400/30;
+  @apply rounded border border-amber-400/30 shadow shadow-lime-400/50;
 }
 
 .cell,

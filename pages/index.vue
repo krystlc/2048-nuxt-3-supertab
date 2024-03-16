@@ -1,10 +1,10 @@
 <template>
-  <div class="container max-w-md py-12 mx-auto">
-    <header class="text-center space-y-4 px-2">
+  <div class="container mx-auto max-w-md">
+    <header class="text-center space-y-4 px-2 py-2 sm:pt-12">
       <AppBI />
       <AdsBanner1 v-if="!hasAccess" />
     </header>
-    <main class="py-4 relative">
+    <main class="sm:py-4 relative">
       <ClientOnly>
         <BoardView
           :max-moves="12"
@@ -19,7 +19,7 @@
         />
       </ClientOnly>
     </main>
-    <footer class="text-center space-y-4 px-2">
+    <footer class="text-center space-y-4 px-2 pb-8">
       <AdsBanner1 v-if="!hasAccess" />
       <nav class="text-sm space-x-4">
         <button @click="handlePaywall" class="underline underline-offset-4">
