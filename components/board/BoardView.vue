@@ -37,7 +37,7 @@ const handleKeyDown = (event: KeyboardEvent) => {
   }
 };
 
-const { direction } = useSwipe(boardContainer, {
+const { direction } = usePointerSwipe(boardContainer, {
   onSwipeEnd: (e) => {
     if (props.pause) return;
     if (board.value.hasWon()) return;
