@@ -12,7 +12,7 @@ body::after {
 .board {
   width: 440px;
   height: 440px;
-  @apply relative order-1 outline-none scale-75 origin-left sm:scale-100 sm:origin-center touch-none;
+  @apply relative order-1 outline-none touch-none;
 }
 
 .board .cell,
