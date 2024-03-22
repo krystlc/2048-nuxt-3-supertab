@@ -28,6 +28,11 @@ useHead({
     {
       content: "2048: Cyber Fusion Edition",
     },
+    {
+      hid: "og-image",
+      property: "og:image",
+      content: "https://enzo.games/splash.png",
+    },
   ],
   script: [
     {
