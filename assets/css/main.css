@@ -10,9 +10,7 @@ body::after {
 }
 
 .board {
-  width: 440px;
-  height: 440px;
-  @apply relative order-1 outline-none touch-none;
+  @apply relative order-1 outline-none touch-none w-full max-w-96 mx-auto flex flex-col gap-2;
 }
 
 .board .cell,
@@ -21,19 +19,21 @@ body::after {
   cursor: default;
 }
 
+.cell-container {
+  @apply flex gap-2;
+}
+
 .cell {
   @apply rounded border border-amber-400/30 shadow shadow-lime-400/50;
 }
 
 .cell,
 .tile {
-  width: 100px;
-  height: 100px;
-  margin: 5px;
   line-height: 90px;
   display: inline-block;
   text-align: center;
   vertical-align: middle;
+  @apply w-1/4 h-24;
 }
 
 .tile {

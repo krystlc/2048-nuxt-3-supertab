@@ -1,6 +1,6 @@
 <template>
   <div class="board" tabIndex="1" ref="boardContainer">
-    <div v-for="(r_item, r_i) in board.cells" :key="r_i">
+    <div v-for="(r_item, r_i) in board.cells" :key="r_i" class="cell-container">
       <BoardCell v-for="(c_item, c_i) in r_item" :key="c_i" />
     </div>
     <BoardTileView v-for="(tile, i) in tiles" :tile="tile" :key="i" />

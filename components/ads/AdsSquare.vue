@@ -3,13 +3,15 @@
     class="absolute left-1/2 top-1/2 -ml-[125px] h-[300px] w-[250px] -mt-[150px] space-y-2"
   >
     <a
-      class="block border shadow-2xl shadow-lime-200 relative"
+      class="block border shadow-2xl relative"
       href="https://www.codewars.com/dashboard"
       target="_blank"
     >
-      <div class="absolute right-4 top-2 text-xs z-30">
+      <div class="absolute right-4 top-2 text-xs">
         <p v-if="count >= 0">Ads ends in {{ count }}</p>
-        <button v-else @click="$emit('close')">Close</button>
+        <button v-else @click="$emit('close')" class="relative z-50 bg-black">
+          Close
+        </button>
       </div>
       <img src="@/assets/gifs/ad2.gif" alt="Play Codewars" />
       <div class="absolute inset-x-0 bottom-0 p-4">
@@ -19,13 +21,16 @@
     </a>
     <div class="relative z-20">
       <button
-        class="bg-black rounded py-3 w-full flex flex-col items-center text-indigo-400 border border-indigo-500 hover:bg-indigo-900 transition-colors"
+        class="bg-yellow-300 text-black py-2 px-6 w-full flex justify-between items-center hover:bg-black hover:text-yellow-300"
         @click="handlePaywall"
       >
-        <span>Tired of the ads?</span>
-        <span class="text-lg uppercase text-indigo-200 tracking-widest"
-          >Play ad free now!</span
-        >
+        <div class="text-left leading-none">
+          <div class="text-xs">Tired of the ads?</div>
+          <div class="uppercase tracking-widest font-semibold">
+            Play ad free!
+          </div>
+        </div>
+        <span class="text-xl">→</span>
       </button>
     </div>
   </div>

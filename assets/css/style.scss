@@ -1,8 +1,11 @@
+$cell-size: calc(25% + 0.1rem);
+
 @for $row from 0 through 3 {
     @for $column from 0 through 3 {
       .position_#{$row}_#{$column}:not(.isMoving) {
-        top: 110px * $row + 5px;
-        left: 110px * $column + 5px;
+        top: calc(($cell-size * $row));
+        left: calc(($cell-size * $column));
+        width: calc($cell-size - 0.5rem);
       }
     }
   }
@@ -13,7 +16,8 @@
   
       @if $fromRow == $toRow {
         .#{$name} {
-          top: 110px * $toRow + 5px;
+          top: calc(($cell-size * $toRow));
+          width: calc($cell-size - 0.5rem);
         }
       } @else {
         .#{$name} {
@@ -24,10 +28,10 @@
   
         @keyframes #{$name} {
           from {
-            top: 110px * $fromRow + 5px;
+            top: calc(($cell-size * $fromRow));
           }
           to {
-            top: 110px * $toRow + 5px;
+            top: calc(($cell-size * $toRow));
           }
         }
       }
@@ -40,7 +44,8 @@
   
       @if $fromColumn == $toColumn {
         .#{$name} {
-          left: 110px * $toColumn + 5px;
+          left: calc(($cell-size * $toColumn));
+          width: calc($cell-size - 0.5rem);
         }
       } @else {
         .#{$name} {
@@ -51,10 +56,10 @@
   
         @keyframes #{$name} {
           from {
-            left: 110px * $fromColumn + 5px;
+            left: calc(($cell-size * $fromColumn));
           }
           to {
-            left: 110px * $toColumn + 5px;
+            left: calc(($cell-size * $toColumn));
           }
         }
       }
