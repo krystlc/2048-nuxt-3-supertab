@@ -63,6 +63,7 @@ Tile.prototype.toColumn = function () {
 var Board = function () {
   this.tiles = [];
   this.cells = [];
+  this.score = 0;
   for (var i = 0; i < Board.size; ++i) {
     this.cells[i] = [
       this.addTile(),
@@ -99,6 +100,7 @@ Board.prototype.moveLeft = function () {
         var tile2 = currentRow.shift();
         tile2.mergedInto = targetTile;
         targetTile.value += tile2.value;
+        this.score += targetTile.value;
       }
       resultRow[target] = targetTile;
       this.won |= targetTile.value == 2048;

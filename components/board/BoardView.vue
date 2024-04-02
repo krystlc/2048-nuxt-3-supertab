@@ -1,4 +1,5 @@
 <template>
+  <BoardScore :score="board.score" :highScore="highScore" />
   <div class="board" tabIndex="1" ref="boardContainer">
     <div v-for="(r_item, r_i) in board.cells" :key="r_i" class="cell-container">
       <BoardCell v-for="(c_item, c_i) in r_item" :key="c_i" />
@@ -84,4 +85,21 @@ onBeforeUnmount(() => {
 const tiles = computed(() => {
   return board.value.tiles.filter((tile) => tile.value != 0);
 });
+
+const highScore = ref(parseInt(localStorage.getItem("highScore") ?? "0"));
+function updateHighScore(newScore: number) {
+  if (newScore > highScore.value) {
+    highScore.value = newScore;
+    // Store the new high score in local storage
+    localStorage.setItem("highScore", String(highScore.value));
+  }
+}
+
+// Listen for changes in the score
+watch(
+  () => board.value.score,
+  (newValue) => {
+    updateHighScore(newValue);
+  }
+);
 </script>
