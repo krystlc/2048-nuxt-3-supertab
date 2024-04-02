@@ -57,7 +57,7 @@
       <h3>Contact Us</h3>
       <p>
         If you have any questions about these Terms, please contact us at
-        <a href="mailto:alex.valle@gmail.com">support@2048cfe.io</a>.
+        <a href="mailto:alex.valle@gmail.com">support@enzo.games</a>.
       </p>
     </section>
   </main>
