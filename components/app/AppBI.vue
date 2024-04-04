@@ -1,8 +1,11 @@
 <template>
-  <span class="inline-flex flex-col leading-none">
-    <span class="text-6xl font-black text-white">2048</span>
-    <span class="text-xs tracking-widest text-lime-400 uppercase">
-      Cyber Fusion Edition
-    </span>
+  <span
+    class="font-display text-4xl h-9 font-semibold inline-flex items-end uppercase"
+  >
+    Enzo
+    <span
+      class="inline-block w-2 h-2 animate-bounce bg-orange-600 rounded-full"
+    ></span>
+    games
   </span>
 </template>

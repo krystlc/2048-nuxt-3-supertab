@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      sans: ["Jura", ...defaultTheme.fontFamily.sans],
+      display: ["Genos", ...defaultTheme.fontFamily.sans],
+      sans: ["Reddit Mono", ...defaultTheme.fontFamily.sans],
     },
   },
 };
