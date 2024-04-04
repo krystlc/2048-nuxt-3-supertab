@@ -1,7 +1,6 @@
 export const hasAccess = ref(false);
 
 useEventListener(window, "accessStatus", (ev) => {
-  console.log("trig!", ev);
   hasAccess.value = (ev as any).detail.access;
 });
 
