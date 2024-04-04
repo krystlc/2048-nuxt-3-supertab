@@ -4,8 +4,6 @@
       <a href="/" class="link">Home</a>
       <a href="/terms" class="link">Terms & Conditions</a>
     </nav>
-    <p class="text-xs text-neutral-400 uppercase">
-      2048: Cyber Fusion Edition © 2024
-    </p>
+    <p class="text-xs text-neutral-400 uppercase">enzo.games © 2024</p>
   </footer>
 </template>
