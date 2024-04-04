@@ -1,5 +1,5 @@
 <template>
-  <main class="prose pb-12 px-4 mx-auto prose-invert">
+  <main class="prose py-4 px-4 mx-auto prose-invert">
     <h1>Terms and Conditions</h1>
     <section>
       <h2>Acceptance of Terms</h2>

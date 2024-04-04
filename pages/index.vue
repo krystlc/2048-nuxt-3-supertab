@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto max-w-md space-y-4">
+  <div class="container mx-auto max-w-md space-y-4 py-4">
     <aside>
       <AdsBanner1 v-if="!hasAccess" />
     </aside>
