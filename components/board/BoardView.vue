@@ -15,6 +15,7 @@ import { Board } from "./Board";
 import BoardCell from "./BoardCell.vue";
 import BoardTileView from "./BoardTileView.vue";
 import BoardGameEndOverlay from "./BoardGameEndOverlay.vue";
+import "./style.scss";
 
 // 0 -> left, 1 -> up, 2 -> right, 3 -> down
 enum DirectionEnum {

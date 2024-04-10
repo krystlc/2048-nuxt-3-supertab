@@ -4,7 +4,7 @@
   >
     <ClientOnly>
       <button @click="showNav = true" class="sm:hidden">
-        <img src="@/assets/svgs/menu.svg" class="h-8 w-8 invert" />
+        <MenuIcon class="text-3xl !mb-0" filled />
       </button>
     </ClientOnly>
     <RouterLink to="/" class="text-white hidden sm:inline-block">
@@ -16,6 +16,7 @@
 </template>
 
 <script setup lang="ts">
+import MenuIcon from "@/assets/svgs/menu.svg";
 const showNav = ref(false);
 
 const router = useRouter();
@@ -23,12 +24,3 @@ router.beforeEach(() => {
   showNav.value = false;
 });
 </script>
-
-<style scoped>
-nav ul li a {
-  @apply py-2 px-4 -mx-4 rounded-xl block hover:bg-slate-200;
-}
-nav ul li a.router-link-active {
-  @apply bg-slate-100;
-}
-</style>

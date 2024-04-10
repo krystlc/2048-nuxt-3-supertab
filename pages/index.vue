@@ -6,7 +6,7 @@
     <main class="sm:py-4 relative">
       <ClientOnly>
         <BoardView
-          :max-moves="12"
+          :max-moves="maxMoves"
           :pause="showSquareAd && !hasAccess"
           @max-moves="handleMaxMoves"
         />
@@ -21,6 +21,8 @@
 
 <script setup lang="ts">
 import { hasAccess } from "~/composables/supertab";
+
+const maxMoves = process.env.NODE_ENV === "development" ? 0 : 12;
 
 useHead({
   title: "2048: Cyber Fusion Edition",

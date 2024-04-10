@@ -1,0 +1,173 @@
+
+.board {
+  @apply bg-orange-950 rounded relative order-1 outline-none touch-none w-full max-w-96 mx-auto flex flex-col gap-2 outline-4 outline-orange-950 outline;
+}
+
+.board .cell,
+.tile {
+  user-select: none;
+  cursor: default;
+}
+
+.cell-container {
+  @apply flex gap-2;
+}
+
+.cell {
+  @apply rounded bg-orange-900/50;
+}
+
+.cell,
+.tile {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  @apply w-1/4 h-24;
+}
+
+.tile {
+  @apply absolute m-0 rounded text-6xl leading-normal bg-orange-100;
+}
+
+.tile0,
+.tile2 {
+  @apply bg-orange-100 text-orange-900
+}
+.tile4 {
+  @apply  bg-orange-200 text-orange-900
+}
+.tile8 {
+  @apply  bg-orange-300 text-orange-900
+}
+.tile16 {
+  @apply  bg-orange-400 text-orange-900
+}
+.tile32 {
+  @apply  bg-orange-600 text-orange-100
+}
+.tile64 {
+  @apply bg-lime-200 text-lime-900
+}
+.tile128 {
+  @apply bg-lime-400 text-5xl text-lime-900 leading-loose
+}
+.tile256 {
+  @apply bg-blue-200 text-5xl text-blue-900 leading-loose;
+}
+.tile512 {
+  @apply bg-emerald-600 text-5xl text-emerald-100 leading-loose;
+}
+.tile1024 {
+  @apply bg-purple-600 text-4xl text-lime-100 leading-loose;
+}
+.tile2048 {
+  @apply bg-purple-700 text-4xl text-lime-100 leading-loose;
+}
+
+.tile.merged {
+  display: none;
+  @apply invisible;
+}
+
+.tile.merged.isMoving {
+  display: inline;
+}
+
+.tile.new,
+.overlay {
+  animation-duration: 0.2s;
+  animation-name: newTile;
+  animation-fill-mode: forwards;
+  animation-delay: 0.15s;
+  transform: scale(0);
+}
+
+@keyframes newTile {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.overlay {
+  @apply rounded bg-black/50 backdrop-blur-sm absolute -inset-8 flex items-center gap-8 justify-center flex-col;
+}
+
+.tryAgain {
+  @apply bg-white text-orange-600 h-12 w-48 cursor-pointer rounded text-2xl;
+}
+
+.overlay .message {
+  @apply text-6xl text-orange-400;
+}
+
+$cell-size: calc(25% + 0.1rem);
+
+@for $row from 0 through 3 {
+    @for $column from 0 through 3 {
+      .position_#{$row}_#{$column}:not(.isMoving) {
+        top: calc(($cell-size * $row));
+        left: calc(($cell-size * $column));
+        width: calc($cell-size - 0.5rem);
+      }
+    }
+  }
+  
+  @for $fromRow from 0 through 3 {
+    @for $toRow from 0 through 3 {
+      $name: row_from_#{$fromRow}_to_#{$toRow};
+  
+      @if $fromRow == $toRow {
+        .#{$name} {
+          top: calc(($cell-size * $toRow));
+          width: calc($cell-size - 0.5rem);
+        }
+      } @else {
+        .#{$name} {
+          animation-duration: 0.20s;
+          animation-name: $name;
+          animation-fill-mode: forwards;
+        }
+  
+        @keyframes #{$name} {
+          from {
+            top: calc(($cell-size * $fromRow));
+          }
+          to {
+            top: calc(($cell-size * $toRow));
+          }
+        }
+      }
+    }
+  }
+  
+  @for $fromColumn from 0 through 3 {
+    @for $toColumn from 0 through 3 {
+      $name: column_from_#{$fromColumn}_to_#{$toColumn};
+  
+      @if $fromColumn == $toColumn {
+        .#{$name} {
+          left: calc(($cell-size * $toColumn));
+          width: calc($cell-size - 0.5rem);
+        }
+      } @else {
+        .#{$name} {
+          animation-duration: 0.20s;
+          animation-name: $name;
+          animation-fill-mode: forwards;
+        }
+  
+        @keyframes #{$name} {
+          from {
+            left: calc(($cell-size * $fromColumn));
+          }
+          to {
+            left: calc(($cell-size * $toColumn));
+          }
+        }
+      }
+    }
+  }
