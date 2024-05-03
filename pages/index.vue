@@ -12,6 +12,37 @@
         />
         <AdsSquare v-if="showSquareAd && !hasAccess" @close="handleAdClose" />
       </ClientOnly>
+
+      <section class="prose prose-invert prose-p:text-sm py-8">
+        <h2>How to Play 2048</h2>
+        <p>
+          2048 is a fun puzzle game where the objective is to slide numbered
+          tiles on a grid to combine them and create a tile with the number
+          2048. Here's how to play:
+        </p>
+
+        <h3>For Mobile Users:</h3>
+        <p>
+          Swipe in any direction (up, down, left, or right) on your screen to
+          move the tiles. When two tiles with the same number touch, they merge
+          into one!
+        </p>
+
+        <h3>For Desktop Users:</h3>
+        <p>
+          Use your arrow keys (up, down, left, or right) to move the tiles on
+          the grid. Just press the arrow key in the direction you want the tiles
+          to move.
+        </p>
+
+        <h3>Objective:</h3>
+        <p>
+          The game ends when you can no longer make a move (i.e., when the grid
+          is full and no adjacent tiles have the same value). Your goal is to
+          reach the 2048 tile, but don't stop there! You can continue playing to
+          achieve even higher scores.
+        </p>
+      </section>
     </main>
     <aside>
       <AdsBanner1 v-if="!hasAccess" />
@@ -22,7 +53,7 @@
 <script setup lang="ts">
 import { hasAccess } from "~/composables/supertab";
 
-const maxMoves = process.env.NODE_ENV === "development" ? 0 : 12;
+const maxMoves = process.env.NODE_ENV === "development" ? 0 : 36;
 
 useHead({
   title: "2048: Cyber Fusion Edition",
