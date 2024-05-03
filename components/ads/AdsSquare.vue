@@ -1,24 +1,30 @@
 <template>
   <div
-    class="absolute left-1/2 top-1/2 -ml-[125px] h-[300px] w-[250px] -mt-[150px] space-y-2"
+    class="fixed h-screen inset-0 flex flex-col items-center justify-center gap-4"
   >
-    <a
-      class="block border shadow-2xl relative"
-      href="https://www.codewars.com/dashboard"
-      target="_blank"
-    >
-      <div class="absolute right-4 top-2 text-xs">
-        <p v-if="count >= 0">Ads ends in {{ count }}</p>
-        <button v-else @click="$emit('close')" class="relative z-50 bg-black">
-          Close
-        </button>
-      </div>
-      <img src="@/assets/gifs/ad2.gif" alt="Play Codewars" />
-      <div class="absolute inset-x-0 bottom-0 p-4">
-        <p class="text-2xl bg-black/90 border-b">Codewars</p>
-        <p class="text-xs">Solve puzzles by filling out the blanks!</p>
-      </div>
-    </a>
+    <div class="border shadow-2xl relative">
+      <a
+        class="block max-w-xs"
+        href="https://www.codewars.com/dashboard"
+        target="_blank"
+      >
+        <div class="absolute right-4 top-2 text-xs">
+          <p v-if="count >= 0">Ads ends in {{ count }}</p>
+        </div>
+        <img src="@/assets/gifs/ad2.gif" alt="Play Codewars" />
+        <div class="absolute inset-x-0 bottom-0 p-4">
+          <p class="text-2xl bg-black/90 border-b">Codewars</p>
+          <p class="text-xs">Solve puzzles by filling out the blanks!</p>
+        </div>
+      </a>
+      <button
+        v-if="count < 0"
+        @click="$emit('close')"
+        class="bg-black absolute right-2 top-2"
+      >
+        Close
+      </button>
+    </div>
     <div class="relative z-20">
       <button
         class="bg-yellow-300 text-black py-2 px-6 w-full flex justify-between items-center hover:bg-black hover:text-yellow-300"
