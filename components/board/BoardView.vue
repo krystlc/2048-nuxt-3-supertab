@@ -1,5 +1,9 @@
 <template>
-  <BoardScore :score="board.score" :highScore="highScore" />
+  <BoardScore
+    :score="board.score"
+    :highScore="highScore"
+    :attempts="attempts"
+  />
   <div class="board" tabIndex="1" ref="boardContainer">
     <div v-for="(r_item, r_i) in board.cells" :key="r_i" class="cell-container">
       <BoardCell v-for="(c_item, c_i) in r_item" :key="c_i" />
@@ -76,6 +80,7 @@ watch(moveCount, (count) => {
 const onRestart = () => {
   moveCount.value = 0;
   board.value = new Board();
+  increaseAttempts();
 };
 onMounted(() => {
   window.addEventListener("keydown", handleKeyDown);
@@ -94,6 +99,12 @@ function updateHighScore(newScore: number) {
     // Store the new high score in local storage
     localStorage.setItem("highScore", String(highScore.value));
   }
+}
+
+const attempts = ref(parseInt(localStorage.getItem("attempts") ?? "1"));
+function increaseAttempts() {
+  attempts.value++;
+  localStorage.setItem("attempts", String(attempts.value));
 }
 
 // Listen for changes in the score

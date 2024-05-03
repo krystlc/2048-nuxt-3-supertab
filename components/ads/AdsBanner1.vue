@@ -2,7 +2,7 @@
   <a
     href="https://codecombat.com/"
     target="_blank"
-    class="block h-16 max-w-96 mx-auto rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-px z-10 relative"
+    class="block h-16 mx-auto rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-px z-10 relative"
   >
     <div
       class="flex h-full w-full items-center justify-center bg-black rounded back overflow-hidden"

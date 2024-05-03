@@ -1,6 +1,6 @@
 
 .board {
-  @apply bg-orange-950 rounded relative order-1 outline-none touch-none w-full max-w-96 mx-auto flex flex-col gap-2 outline-4 outline-orange-950 outline;
+  @apply bg-orange-950 rounded relative order-1 outline-none touch-none w-full mx-auto flex flex-col gap-2 outline-4 outline-orange-950 outline;
 }
 
 .board .cell,
