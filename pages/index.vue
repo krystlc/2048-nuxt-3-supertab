@@ -53,7 +53,7 @@
 <script setup lang="ts">
 import { hasAccess } from "~/composables/supertab";
 
-const maxMoves = process.env.NODE_ENV === "development" ? 0 : 36;
+const maxMoves = process.env.NODE_ENV === "development" ? 2 : 48;
 
 useHead({
   title: "2048: Cyber Fusion Edition",
@@ -71,6 +71,10 @@ useHead({
     {
       src: "https://onpage-widget.supertab.co/v2/widget.js",
       defer: true,
+    },
+    {
+      src: "https://js.supertab.co/v1/tab.js",
+      type: "module",
     },
     {
       src: "./supertab.js",

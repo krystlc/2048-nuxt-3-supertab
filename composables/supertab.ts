@@ -9,6 +9,9 @@ declare global {
     widget: {
       showPaywall: () => void;
     };
+    supertab: {
+      createPurchaseButton: (options: {}) => void;
+    };
   }
 }
 export function handlePaywall() {
